@@ -1,0 +1,13 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	//border: solid 1px red;
+	height: 100vh;
+	padding: 2rem;
+}
+
+.listArea {
+	//border: solid 1px;
+	height: 100vh;
+}

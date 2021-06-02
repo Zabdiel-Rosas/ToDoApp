@@ -1,0 +1,29 @@
+.addingTask {
+	width: 800px;
+	margin: 2rem 0;
+	//border: solid 1px green;
+	display: flex;
+	justify-content: space-around;
+}
+
+.textArea {
+	width: 65%;
+	height: 44px;
+}
+
+.addBtnArea {
+	width: 30%;
+}
+
+.btn {
+	width: 110px;
+	height: 50px;
+	border: solid  2px royalblue;
+	background: royalblue;
+	color: #fff;
+}
+
+.textArea, .btn {
+	border-radius: 5px;
+	font-weight: 800;
+}

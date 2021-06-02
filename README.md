@@ -1,4 +1,14 @@
-# Getting Started with Create React App
+# To Do List App
+## Description
+
+This project has been created with the purpose of learning how React JS works and applying the main concepts of
+this library to created great and eficient user interfaces.
+
+## What has changed?
+
+Go to the [Change Log](./CHANGELOG.md).
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
