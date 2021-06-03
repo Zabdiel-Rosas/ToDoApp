@@ -23,3 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 * Now a task that is marked as done can't be deleted.
 * A message is displayed when trying to delete a completed task.
+
+## [1.2.0] - 2021-06-03
+### Added
+* New feature has been added to let the user change the status of a task between done and undone.
