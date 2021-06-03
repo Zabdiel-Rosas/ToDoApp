@@ -18,3 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 * A validation for not letting the user create empty tasks has been added.
+
+## [1.1.0] - 2021-06-03
+### Added
+* Now a task that is marked as done can't be deleted.
+* A message is displayed when trying to delete a completed task.
