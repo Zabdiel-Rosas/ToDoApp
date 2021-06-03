@@ -13,8 +13,12 @@ class ToDoList extends Component {
   }
 
   handleAddClick (task) {
-    const nextTask = this.createTask(task)
-    this.setState({ tasks: [...this.state.tasks, nextTask] })
+    if (task !== '') {
+      const nextTask = this.createTask(task)
+      this.setState({ tasks: [...this.state.tasks, nextTask] })
+    } else {
+      window.alert('The input shouldn\'t be empty!')
+    }
   }
 
   createTask (task) {
