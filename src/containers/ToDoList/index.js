@@ -13,8 +13,12 @@ class ToDoList extends Component {
   }
 
   handleAddClick (task) {
-    const nextTask = this.createTask(task)
-    this.setState({ tasks: [...this.state.tasks, nextTask] })
+    if (task !== '') {
+      const nextTask = this.createTask(task)
+      this.setState({ tasks: [...this.state.tasks, nextTask] })
+    } else {
+      window.alert('The input shouldn\'t be empty!')
+    }
   }
 
   createTask (task) {
@@ -40,11 +44,18 @@ class ToDoList extends Component {
   }
 
   handleDeleteClick (id) {
-    const newState = this.state.tasks.filter((task) => {
-      return task.id !== id
+    const currentTask = this.state.tasks.filter((task) => {
+      return task.id === id
     })
 
-    this.setState({ tasks: newState })
+    if (!currentTask[0].finished) {
+      const newState = this.state.tasks.filter((task) => {
+        return task.id !== id
+      })
+      this.setState({ tasks: newState })
+    } else {
+      window.alert('Can\'t Delete a task marked as done')
+    }
   }
 
   render () {
