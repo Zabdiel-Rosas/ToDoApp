@@ -33,7 +33,7 @@ class ToDoList extends Component {
   handleDoneClick (id) {
     const newState = this.state.tasks.map((task) => {
       if (task.id === id) {
-        task.finished = true
+        task.finished = !task.finished
         return task
       }
 
