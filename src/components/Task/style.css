@@ -2,11 +2,13 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
-	width: 800px;
-	height: 200px;
-	margin: 2rem 0;
-	//border: solid 1px;
-	//border-radius: 5px;
+	width: 790px;
+	min-height: 70px;
+	margin-bottom: 2rem;
+	background: #fff;
+	border-radius: 15px;
+	border: solid 1px #d8d8d8;
+	border-left: solid 10px #650481;
 }
 
 .taskArea {
@@ -14,9 +16,24 @@
 	flex-direction: column;
 	justify-content: center;
 	width: 65%;
-	height: 85%;
-	border: solid 1px ;
-	border-radius: 5px;
+	height: 75%;
+	color: #101010;
+	text-align: left;
+}
+
+.taskText {
+	height: 45%;
+}
+
+.date {
+	height: 45%;
+	color: #696969;
+}
+
+p {
+	margin: 0;
+	height: 100%;
+	padding: 3px 0;
 }
 
 .btnArea {
@@ -25,12 +42,13 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	border-radius: 25px;
 }
 
 .btnArea button {
 	height: 50px;
-	width: 80px;
-	border-radius: 5px;
+	width: 100px;
+	border-radius: 50px;
 	font-weight: 800;
 }
 
@@ -40,8 +58,8 @@
 
 .done {
 	margin-right: .5rem;
-	border: solid  2px seagreen;
-	background: seagreen;
+	border: solid  2px #00E2A4;
+	background: #00E2A4;
 	color: #fff;
 }
 

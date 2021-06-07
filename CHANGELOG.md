@@ -27,3 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.2.0] - 2021-06-03
 ### Added
 * New feature has been added to let the user change the status of a task between done and undone.
+
+## [2.0.0] - 2021-06-07
+### Changed
+* The design of the web site has been changed in order to give a more atractive user experience.
