@@ -39,3 +39,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.1.0] - 2021-06-08
 ### Changed
 * The input and button of add task now take the same space as the task cards.
+
+## [2.1.1] - 2021-06-08
+### Fixed
+* Now the web site do not scroll down in order to always keep the "add task area" visible, the tasks area
+can be scrolled down if needed to.
