@@ -7,6 +7,10 @@
 	padding: 2rem;
 }
 
+h1 {
+	color: #650481;
+}
+
 .listArea {
 	//border: solid 1px;
 	height: 100vh;
