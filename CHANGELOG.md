@@ -31,3 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.0.0] - 2021-06-07
 ### Changed
 * The design of the web site has been changed in order to give a more atractive user experience.
+
+## [2.0.1] - 2021-06-08
+### Fixed
+* The style for the input has changed, this behavior is only seen when clicking in the input to add a new task.

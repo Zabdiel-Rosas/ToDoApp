@@ -16,6 +16,12 @@
 	padding-left: 15px;
 }
 
+input:focus {
+	outline: none;
+	border: solid 2px #650481;
+	color: #000;
+}
+
 .addBtnArea {
 	width: 20%;
 }
