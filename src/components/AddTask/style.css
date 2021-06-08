@@ -2,7 +2,7 @@
 	width: 800px;
 	margin: 2rem 0;
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 }
 
 .textArea {

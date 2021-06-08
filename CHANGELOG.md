@@ -35,3 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.0.1] - 2021-06-08
 ### Fixed
 * The style for the input has changed, this behavior is only seen when clicking in the input to add a new task.
+
+## [2.1.0] - 2021-06-08
+### Changed
+* The input and button of add task now take the same space as the task cards.
