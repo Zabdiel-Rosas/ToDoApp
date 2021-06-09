@@ -52,3 +52,7 @@ can be scrolled down if needed to.
 ## [2.2.1] - 2021-06-09
 ### Fixed
 * Now the text in the card can not overflow its container, the long words are break in order to fit the task card.
+
+## [2.3.0] - 2021-06-09
+### Add
+* The colors for the state of the task has changed so it can be identified when a task is done or not.
