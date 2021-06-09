@@ -24,7 +24,7 @@ render () {
         </div>
       </div>
       <aside className='btnArea'>
-        <button type='button' className='done' onClick={this.handleOnDone}>{done ? 'Undone' : 'Done'}</button>
+        <button type='button' className={done ? 'undone' : 'done'} onClick={this.handleOnDone}>{done ? 'Undone' : 'Done'}</button>
         <button type='button' className='delete' onClick={this.handleOnDelete}>Delete</button>
       </aside>
     </div>
