@@ -19,6 +19,7 @@
 	height: 75%;
 	color: #101010;
 	text-align: left;
+	overflow-wrap: break-word;
 }
 
 .taskText {
