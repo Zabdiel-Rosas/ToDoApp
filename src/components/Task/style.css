@@ -63,6 +63,13 @@ p {
 	color: #fff;
 }
 
+.undone {
+	margin-right: .5rem;
+	border: solid  2px #08709D;
+	background: #08709D;
+	color: #fff;	
+}
+
 .delete {
 	margin-left: .5rem;
 	border: solid  2px indianred;
