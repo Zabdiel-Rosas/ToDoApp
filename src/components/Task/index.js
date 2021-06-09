@@ -14,7 +14,7 @@ render () {
   const date = this.props.data.createdAt
   const done = this.props.data.finished
   return (
-    <div className='card'>
+    <div className={done ? 'green card' : 'card'}>
       <div className='taskArea'>
         <div className='taskText'>
           <p className={done ? 'finished' : null}>{this.props.data.task}</p>
