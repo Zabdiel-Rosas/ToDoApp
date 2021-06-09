@@ -44,3 +44,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 * Now the web site do not scroll down in order to always keep the "add task area" visible, the tasks area
 can be scrolled down if needed to.
+
+## [2.2.0] - 2021-06-09
+### Add
+* When user clicks the done button it changes not only the text to Undone but also its color.
