@@ -56,3 +56,9 @@ can be scrolled down if needed to.
 ## [2.3.0] - 2021-06-09
 ### Add
 * The colors for the state of the task has changed so it can be identified when a task is done or not.
+
+## [2.4.0] - 2021-06-09
+### Change
+* Now the delete button deactivates the done button.
+* The deleted task now does not disappear from the list.
+* Now the card changes to color red when deleted.

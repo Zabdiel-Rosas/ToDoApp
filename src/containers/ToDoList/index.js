@@ -26,7 +26,8 @@ class ToDoList extends Component {
       task,
       createdAt: new Date(),
       id: Math.random() * 100,
-      finished: false
+      finished: false,
+      deleted: false
     }
   }
 
@@ -49,9 +50,21 @@ class ToDoList extends Component {
     })
 
     if (!currentTask[0].finished) {
-      const newState = this.state.tasks.filter((task) => {
+      // This code deletes the task from the UI
+      /* const newState = this.state.tasks.filter((task) => {
         return task.id !== id
       })
+      this.setState({ tasks: newState }) */
+
+      const newState = this.state.tasks.map((task) => {
+        if (task.id === id) {
+          task.deleted = true
+          return task
+        }
+
+        return task
+      })
+
       this.setState({ tasks: newState })
     } else {
       window.alert('Can\'t Delete a task marked as done')
