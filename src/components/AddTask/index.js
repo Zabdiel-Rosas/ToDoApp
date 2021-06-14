@@ -42,14 +42,26 @@ class AddTask extends Component {
               <Modal>
                 <div className='modal-background'>
                   <div className='add-task-form'>
-                    <button className="close-btn" onClick={this.handleHide}>X</button>
-                    <input
-                      type='text'
-                      className='textArea'
-                      placeholder='Write new task'
-                      value={this.state.task}
-                      onChange={this.handleChange}
-                    />
+                    <button className='close-btn' onClick={this.handleHide}>X</button>       
+                    <h2 className='instruction'>Create Task:</h2>                                                             
+                    <div className='input-area'>
+                      <label className='label'>Title:</label>
+                      <input
+                        type='text'
+                        className='modal-input'
+                        placeholder='Write task title'
+                        value={this.state.task}
+                        onChange={this.handleChange}
+                      />                      
+                      <label className='label'>Description:</label>
+                      <input
+                        type='text'
+                        className='modal-input'
+                        placeholder='Write description'
+                        value={this.state.task}
+                        onChange={this.handleChange}
+                      />
+                    </div>
                     <div className='addBtnArea'>
                       <button className='btn' onClick={this.handleClick}>Add</button>
                     </div>
