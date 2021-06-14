@@ -1,9 +1,78 @@
-.addingTask {
+.addingTask-container {
 	width: 820px;
 	padding: 0 10px;
 	margin: 2rem 0;
 	display: flex;
-	//border: solid 1px red;
+}
+
+.addTaskCard {
+	width: 800px;
+	min-height: 70px;
+}
+
+.addTaskBtn {
+	width: 100%;
+	height: 100%;
+	background-color: #8009A2;
+	color: #fff;
+	border-radius: 15px;
+	border: solid 1px #650481;
+	font-weight: 600;
+}
+
+.addTaskBtn:hover {
+	background: #fff;
+	color: #650481;
+	border: solid 1px #d8d8d8;
+	cursor: pointer;
+}
+
+/* Modal Style */
+
+.modal-background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(69, 28, 94, 0.644);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.add-task-form {
+	position: relative;
+	width: 840px;
+	height: 600px;
+	background: rgb(69, 28, 94);
+	border-radius: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.close-btn {
+	position: absolute;
+	top: 25px;
+	right: 25px;
+	width: 40px;
+	height: 40px;
+	font-weight: 500;
+	margin-bottom: 1rem;
+	background: indianred;
+	color: #fff;
+	border: solid 1px indianred;
+	border-radius: 50px;
+}
+
+.close-btn:hover {
+	font-weight: 800;
+	background: indianred;
+	color: #fff;
+	border: solid 1px #fff;
+	cursor: pointer;
 }
 
 .textArea {
@@ -14,7 +83,7 @@
 	color: #696969;
 	font-family: inherit;
 	font-weight: 500;
-	margin-right: 3%;
+	margin-bottom: 2rem;
 	padding-left: 15px;
 }
 
@@ -33,11 +102,13 @@ input:focus {
 	height: 50px;
 	border: none;
 	border-radius: 50px;
-	background: #650481;
-	color: #fff;
+	background: #fff;
+	color: #650481;
 	font-weight: 800;
 }
 
 .btn:hover {
+	background: #8C30A6;
+	color: #fff;
 	cursor: pointer;
 }
