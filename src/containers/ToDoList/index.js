@@ -4,7 +4,7 @@ import Task from '../../components/Task/index'
 import './style.css'
 
 class ToDoList extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { tasks: [] }
     this.handleAddClick = this.handleAddClick.bind(this)
@@ -12,19 +12,15 @@ class ToDoList extends Component {
     this.handleDeleteClick = this.handleDeleteClick.bind(this)
   }
 
-  handleAddClick (title, desc) {
-    if (title !== '' && desc !== '') {
-      const nextTask = this.createTask(title, desc)
-      this.setState({ tasks: [...this.state.tasks, nextTask] })
-    } else {
-      window.alert('The input shouldn\'t be empty!')
-    }
+  handleAddClick(task) {
+    const nextTask = this.createTask(task)
+    this.setState({ tasks: [...this.state.tasks, nextTask] })
   }
 
-  createTask (title, desc) {
+  createTask(task) {
     return {
-      title,
-      desc,
+      title: task.title,
+      desc: task.desc,
       createdAt: new Date(),
       id: Math.random() * 100,
       finished: false,
@@ -32,7 +28,7 @@ class ToDoList extends Component {
     }
   }
 
-  handleDoneClick (id) {
+  handleDoneClick(id) {
     const newState = this.state.tasks.map((task) => {
       if (task.id === id) {
         task.finished = !task.finished
@@ -45,7 +41,7 @@ class ToDoList extends Component {
     this.setState({ tasks: newState })
   }
 
-  handleDeleteClick (id) {
+  handleDeleteClick(id) {
     const currentTask = this.state.tasks.filter((task) => {
       return task.id === id
     })
@@ -72,24 +68,24 @@ class ToDoList extends Component {
     }
   }
 
-  render () {
+  render() {
     return (
       <div className='container'>
         <h1>To Do List</h1>
         <AddTask onClick={this.handleAddClick} />
         <div className='listArea'>
           {
-                this.state.tasks.map((task) => {
-                  return (
-                    <Task
-                      key={task.id}
-                      data={task}
-                      onDone={this.handleDoneClick}
-                      onDelete={this.handleDeleteClick}
-                    />
-                  )
-                })
-            }
+            this.state.tasks.map((task) => {
+              return (
+                <Task
+                  key={task.id}
+                  data={task}
+                  onDone={this.handleDoneClick}
+                  onDelete={this.handleDeleteClick}
+                />
+              )
+            })
+          }
         </div>
       </div>
     )
