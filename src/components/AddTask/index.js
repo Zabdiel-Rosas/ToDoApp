@@ -3,9 +3,9 @@ import './style.css'
 import Modal from '../Modal/index'
 
 class AddTask extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
-    this.state = { showModal: false, task: { title: '', desc: ''} }
+    this.state = { showModal: false, task: { title: '', desc: '' } }
     this.onChange = props.onChange
     this.onClick = props.onClick
     this.handleShow = this.handleShow.bind(this)
@@ -15,66 +15,72 @@ class AddTask extends Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleShow () {
+  handleShow() {
     this.setState({ showModal: true })
   }
 
-  handleHide () {
+  handleHide() {
     this.setState({ showModal: false })
   }
 
-  handleTitleChange (e) {
-    this.setState({ task: {title: e.target.value, desc: this.state.task.desc} })
+  handleTitleChange(e) {
+    var nextTask = this.state.task
+    nextTask.title = e.target.value
+    this.setState({ task: nextTask })
   }
 
-  handleDescChange (e) {
-    this.setState({ task: {title: this.state.task.title, desc: e.target.value} })
+  handleDescChange(e) {
+    var nextTask = this.state.task
+    nextTask.desc = e.target.value
+    this.setState({ task: nextTask })
   }
 
-  handleClick () {
-    const title = this.state.task.title
-    const desc = this.state.task.desc
-    this.onClick(title, desc)
-    this.setState({ task: {title: '', desc: ''}})
-    this.handleHide()
+  handleClick() {
+    const { task } = this.state
+    if (task.title !== '' && task.desc !== '') {
+      this.onClick(task)
+      this.setState({ task: { title: '', desc: '' } })
+      this.handleHide()
+    } else {
+      window.alert('The input shouldn\'t be empty!')
+    }
+
   }
 
-  render () {
+  render() {
     return (
       <div className='addingTask-container'>
         <div className='addTaskCard'>
           <button type='button' className='addTaskBtn' onClick={this.handleShow}>+ Add a Task</button>
           {
             this.state.showModal &&
-              <Modal>
-                <div className='modal-background'>
-                  <div className='add-task-form'>
-                    <button className='close-btn' onClick={this.handleHide}>X</button>       
-                    <h2 className='instruction'>Create Task:</h2>                                                             
-                    <div className='input-area'>
-                      <label className='label'>Title:</label>
-                      <input
-                        type='text'
-                        className='modal-input'
-                        placeholder='Write task title'
-                        value={this.state.task.title}
-                        onChange={this.handleTitleChange}
-                      />                      
-                      <label className='label'>Description:</label>
-                      <input
-                        type='text'
-                        className='modal-input'
-                        placeholder='Write description'
-                        value={this.state.task.desc}
-                        onChange={this.handleDescChange}
-                      />
-                    </div>
-                    <div className='addBtnArea'>
-                      <button className='btn' onClick={this.handleClick}>Add</button>
-                    </div>
+            <Modal>
+              <div className='modal-background'>
+                <div className='add-task-form'>
+                  <button className='close-btn' onClick={this.handleHide}>X</button>
+                  <div className='input-area'>
+                    <h2 className='instruction'>Create Task:</h2>
+                    <label className='label'>Title:</label>
+                    <input
+                      type='text'
+                      className='modal-input'
+                      placeholder='Write task title'
+                      value={this.state.task.title}
+                      onChange={this.handleTitleChange}
+                    />
+                    <label className='label'>Description:</label>
+                    <input
+                      type='text'
+                      className='modal-input'
+                      placeholder='Write description'
+                      value={this.state.task.desc}
+                      onChange={this.handleDescChange}
+                    />
+                    <button className='btn' onClick={this.handleClick}>Add</button>
                   </div>
                 </div>
-              </Modal>
+              </div>
+            </Modal>
           }
         </div>
       </div>
