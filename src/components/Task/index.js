@@ -36,7 +36,8 @@ render () {
     <div className={done ? 'green card' : 'card'} style={handleStyle(deleted)}>
       <div className='taskArea'>
         <div className='taskText'>
-          <p className={done ? 'finished textCard' : 'textCard'}>{this.props.data.task}</p>
+          <p className={done ? 'finished textCard' : 'textCard'}>{this.props.data.title}</p>
+          <p className={done ? 'finished textCard' : 'textCard'}>{this.props.data.desc}</p>
         </div>
         <div className='date'>
           <p className='textCard'>{date.toDateString()}</p>
