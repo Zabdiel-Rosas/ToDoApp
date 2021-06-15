@@ -5,12 +5,13 @@ import Modal from '../Modal/index'
 class AddTask extends Component {
   constructor (props) {
     super(props)
-    this.state = { showModal: false, task: '' }
+    this.state = { showModal: false, task: { title: '', desc: ''} }
     this.onChange = props.onChange
     this.onClick = props.onClick
     this.handleShow = this.handleShow.bind(this)
     this.handleHide = this.handleHide.bind(this)
-    this.handleChange = this.handleChange.bind(this)
+    this.handleTitleChange = this.handleTitleChange.bind(this)
+    this.handleDescChange = this.handleDescChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }
 
@@ -22,13 +23,19 @@ class AddTask extends Component {
     this.setState({ showModal: false })
   }
 
-  handleChange (e) {
-    this.setState({ task: e.target.value })
+  handleTitleChange (e) {
+    this.setState({ task: {title: e.target.value, desc: this.state.task.desc} })
+  }
+
+  handleDescChange (e) {
+    this.setState({ task: {title: this.state.task.title, desc: e.target.value} })
   }
 
   handleClick () {
-    this.onClick(this.state.task)
-    this.setState({ task: '' })
+    const title = this.state.task.title
+    const desc = this.state.task.desc
+    this.onClick(title, desc)
+    this.setState({ task: {title: '', desc: ''}})
     this.handleHide()
   }
 
@@ -50,16 +57,16 @@ class AddTask extends Component {
                         type='text'
                         className='modal-input'
                         placeholder='Write task title'
-                        value={this.state.task}
-                        onChange={this.handleChange}
+                        value={this.state.task.title}
+                        onChange={this.handleTitleChange}
                       />                      
                       <label className='label'>Description:</label>
                       <input
                         type='text'
                         className='modal-input'
                         placeholder='Write description'
-                        value={this.state.task}
-                        onChange={this.handleChange}
+                        value={this.state.task.desc}
+                        onChange={this.handleDescChange}
                       />
                     </div>
                     <div className='addBtnArea'>
