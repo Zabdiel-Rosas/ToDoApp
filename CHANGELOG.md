@@ -46,7 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 can be scrolled down if needed to.
 
 ## [2.2.0] - 2021-06-09
-### Add
+### Added
 * When user clicks the done button it changes not only the text to Undone but also its color.
 
 ## [2.2.1] - 2021-06-09
@@ -54,11 +54,24 @@ can be scrolled down if needed to.
 * Now the text in the card can not overflow its container, the long words are break in order to fit the task card.
 
 ## [2.3.0] - 2021-06-09
-### Add
+### Added
 * The colors for the state of the task has changed so it can be identified when a task is done or not.
 
 ## [2.4.0] - 2021-06-09
-### Change
+### Changed
 * Now the delete button deactivates the done button.
 * The deleted task now does not disappear from the list.
 * Now the card changes to color red when deleted.
+
+## [2.5.0] - 2021-06-15
+### Added
+* Adds Modal that let the user create a new task.
+
+### Changed
+* Changes the functionality of the delete button.
+* Now the task card changes to color red when deleted.
+* The task doesn't gets removed from the UI.
+* The User Interface now has a button that opens a modal.
+
+### Deleted
+* Deletes the input that used to create a task.

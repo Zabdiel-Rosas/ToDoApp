@@ -37,14 +37,14 @@
 	bottom: 0;
 	background: rgba(69, 28, 94, 0.644);
 	display: flex;
-	align-items: center;
 	justify-content: center;
 }
 
 .add-task-form {
 	position: relative;
+	top: 140px;
 	width: 840px;
-	height: 600px;
+	height: 360px;
 	background: rgb(69, 28, 94);
 	border-radius: 15px;
 	display: flex;
@@ -53,14 +53,18 @@
 	justify-content: center;
 }
 
+.instruction {
+	color: #fff;
+	margin: 0 auto;
+}
+
 .close-btn {
 	position: absolute;
-	top: 25px;
-	right: 25px;
+	top: 10px;
+	right: 15px;
 	width: 40px;
 	height: 40px;
 	font-weight: 500;
-	margin-bottom: 1rem;
 	background: indianred;
 	color: #fff;
 	border: solid 1px indianred;
@@ -75,36 +79,47 @@
 	cursor: pointer;
 }
 
-.textArea {
-	width: 72%;
+.input-area {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-around;
+	width: 90%;
+}
+
+.label {
+	font-size: large;
+	color: #fff;
+	margin-bottom: .5rem;
+}
+
+.modal-input {
+	width: calc(100% - 15px);
 	height: 44px;
 	border: solid 1px #d8d8d8;
 	border-radius: 15px;
 	color: #696969;
 	font-family: inherit;
 	font-weight: 500;
-	margin-bottom: 2rem;
-	padding-left: 15px;
+	padding-left: 12px;
+	margin-bottom: .5rem;
 }
 
 input:focus {
 	outline: none;
-	border: solid 2px #650481;
+	border: solid 2px #8C30A6;
 	color: #000;
 }
 
-.addBtnArea {
-	width: 20%;
-}
-
 .btn {
-	width: 100%;
+	width: 130px;
 	height: 50px;
 	border: none;
 	border-radius: 50px;
 	background: #fff;
 	color: #650481;
 	font-weight: 800;
+	margin-top: .5rem;
 }
 
 .btn:hover {
