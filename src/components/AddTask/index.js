@@ -3,59 +3,84 @@ import './style.css'
 import Modal from '../Modal/index'
 
 class AddTask extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
-    this.state = { showModal: false, task: '' }
+    this.state = { showModal: false, task: { title: '', desc: '' } }
     this.onChange = props.onChange
     this.onClick = props.onClick
     this.handleShow = this.handleShow.bind(this)
     this.handleHide = this.handleHide.bind(this)
-    this.handleChange = this.handleChange.bind(this)
+    this.handleTitleChange = this.handleTitleChange.bind(this)
+    this.handleDescChange = this.handleDescChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleShow () {
+  handleShow() {
     this.setState({ showModal: true })
   }
 
-  handleHide () {
+  handleHide() {
     this.setState({ showModal: false })
   }
 
-  handleChange (e) {
-    this.setState({ task: e.target.value })
+  handleTitleChange(e) {
+    var nextTask = this.state.task
+    nextTask.title = e.target.value
+    this.setState({ task: nextTask })
   }
 
-  handleClick () {
-    this.onClick(this.state.task)
-    this.setState({ task: '' })
-    this.handleHide()
+  handleDescChange(e) {
+    var nextTask = this.state.task
+    nextTask.desc = e.target.value
+    this.setState({ task: nextTask })
   }
 
-  render () {
+  handleClick() {
+    const { task } = this.state
+    if (task.title !== '' && task.desc !== '') {
+      this.onClick(task)
+      this.setState({ task: { title: '', desc: '' } })
+      this.handleHide()
+    } else {
+      window.alert('The input shouldn\'t be empty!')
+    }
+
+  }
+
+  render() {
     return (
       <div className='addingTask-container'>
         <div className='addTaskCard'>
           <button type='button' className='addTaskBtn' onClick={this.handleShow}>+ Add a Task</button>
           {
             this.state.showModal &&
-              <Modal>
-                <div className='modal-background'>
-                  <div className='add-task-form'>
-                    <button className="close-btn" onClick={this.handleHide}>X</button>
+            <Modal>
+              <div className='modal-background'>
+                <div className='add-task-form'>
+                  <button className='close-btn' onClick={this.handleHide}>X</button>
+                  <div className='input-area'>
+                    <h2 className='instruction'>Create Task:</h2>
+                    <label className='label'>Title:</label>
                     <input
                       type='text'
-                      className='textArea'
-                      placeholder='Write new task'
-                      value={this.state.task}
-                      onChange={this.handleChange}
+                      className='modal-input'
+                      placeholder='Write task title'
+                      value={this.state.task.title}
+                      onChange={this.handleTitleChange}
                     />
-                    <div className='addBtnArea'>
-                      <button className='btn' onClick={this.handleClick}>Add</button>
-                    </div>
+                    <label className='label'>Description:</label>
+                    <input
+                      type='text'
+                      className='modal-input'
+                      placeholder='Write description'
+                      value={this.state.task.desc}
+                      onChange={this.handleDescChange}
+                    />
+                    <button className='btn' onClick={this.handleClick}>Add</button>
                   </div>
                 </div>
-              </Modal>
+              </div>
+            </Modal>
           }
         </div>
       </div>
