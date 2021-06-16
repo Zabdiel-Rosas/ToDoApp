@@ -6,6 +6,7 @@
 }
 
 .addTaskCard {
+	margin-top: 1rem;
 	width: 800px;
 	min-height: 70px;
 }
