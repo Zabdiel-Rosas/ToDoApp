@@ -75,3 +75,7 @@ can be scrolled down if needed to.
 
 ### Deleted
 * Deletes the input that used to create a task.
+
+## [2.6.0] - 2021-06-16
+### Added
+* Now the user can click outside of the modal form to close it.
