@@ -5,7 +5,7 @@ import Modal from '../Modal/index'
 class AddTask extends Component {
   constructor(props) {
     super(props)
-    this.state = { showModal: false, task: { title: '', desc: '' } }
+    this.state = { showModal: false, task: { title: '', desc: '' }, errors: { title: '', desc: '' } }
     this.onChange = props.onChange
     this.onClick = props.onClick
     this.handleShow = this.handleShow.bind(this)
@@ -14,6 +14,7 @@ class AddTask extends Component {
     this.handleDescChange = this.handleDescChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.handleClickOutside = this.handleClickOutside.bind(this)
+    this.validate = this.validate.bind(this)
   }
 
   handleShow() {
@@ -21,7 +22,7 @@ class AddTask extends Component {
   }
 
   handleHide() {
-    this.setState({ showModal: false })
+    this.setState({ showModal: false, task: { title: '', desc: '' }, errors: { title: '', desc: '' } })
   }
 
   handleTitleChange(e) {
@@ -36,16 +37,30 @@ class AddTask extends Component {
     this.setState({ task: nextTask })
   }
 
-  handleClick() {
-    const { task } = this.state
+  validate(task, nextError) {
     if (task.title !== '' && task.desc !== '') {
       this.onClick(task)
       this.setState({ task: { title: '', desc: '' } })
       this.handleHide()
+    } else if (task.title === '' && task.desc === '') {
+      nextError = { title: 'A title is required', desc: 'You must enter a description' }
+      this.setState({ errors: nextError })
     } else {
-      window.alert('The input shouldn\'t be empty!')
+      if (task.title === '') {
+        nextError.title = 'A title is required'
+        this.setState({ errors: nextError })
+      } else {
+        nextError.desc = 'You must enter a description'
+        this.setState({ errors: nextError })
+      }
     }
+  }
 
+  handleClick() {
+    this.setState({ errors: { title: '', desc: '' } }, () => {
+      const { task, errors } = this.state
+      this.validate(task, errors)
+    })
   }
 
   handleClickOutside() {
@@ -53,6 +68,8 @@ class AddTask extends Component {
   }
 
   render() {
+    const { errors } = this.state
+
     return (
       <div className='addingTask-container'>
         <div className='addTaskCard'>
@@ -68,19 +85,21 @@ class AddTask extends Component {
                   <label className='label'>Title:</label>
                   <input
                     type='text'
-                    className='modal-input'
+                    className={errors['title'] === '' ? 'modal-input' : 'modal-input errorInput'}
                     placeholder='Write task title'
                     value={this.state.task.title}
                     onChange={this.handleTitleChange}
                   />
+                  <span style={{ color: 'red', 'font-weight': 'bold' }}>{errors.title}</span>
                   <label className='label'>Description:</label>
                   <input
                     type='text'
-                    className='modal-input'
+                    className={errors['desc'] === '' ? 'modal-input' : 'modal-input errorInput'}
                     placeholder='Write description'
                     value={this.state.task.desc}
                     onChange={this.handleDescChange}
                   />
+                  <span style={{ color: 'red', 'font-weight': 'bold' }}>{errors.desc}</span>
                   <button className='btn' onClick={this.handleClick}>Add</button>
                 </div>
               </div>
