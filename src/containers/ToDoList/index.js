@@ -14,7 +14,7 @@ class ToDoList extends Component {
 
   handleAddClick(task) {
     const nextTask = this.createTask(task)
-    this.setState({ tasks: [...this.state.tasks, nextTask] })
+    this.setState({ tasks: [nextTask, ...this.state.tasks] })
   }
 
   createTask(task) {
